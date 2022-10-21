@@ -1,0 +1,36 @@
+* {
+    background-color: peru;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.square {
+    display: flex;
+}
+#title {
+    display: flex;
+    justify-content: center;
+    font-family:inherit;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.click {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 40px ;
+}
+.button {
+    font-size: 40px;
+    border-color: white;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color:rgb(54, 54, 232);
+    padding: 10px 20px;
+    
+   
+}
