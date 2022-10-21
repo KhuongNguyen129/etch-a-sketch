@@ -27,8 +27,11 @@ function letter(num) {
             div.style.height = `${(960 / num)}px`;
             div.style.backgroundColor = "white";
             div.addEventListener('mouseenter', function(e) {
-                console.log(this.style.backgroundColor)
-                this.style.backgroundColor = 'rgb(88, 118, 240)';
+                let x = Math.floor(Math.random() * 256);
+                let y = Math.floor(Math.random() * 256);
+                let z = Math.floor(Math.random() * 256);
+                let randomColor = `rgb(${x},${y},${z})`
+                this.style.backgroundColor = randomColor;
             })
             
         }
