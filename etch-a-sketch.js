@@ -8,13 +8,13 @@ button.addEventListener('click', () => {
     const bodyElement = document.querySelector('body');
     bodyElement.appendChild(newContainer);
     container = document.querySelector('#container');
-    letter(input);
+    createGrid(input);
 
 })
 
 
-letter(16);
-function letter(num) {
+createGrid(16);
+function createGrid(num) {
     for(let i = 0 ; i < num ; i++) {
         const divs = document.createElement('div');
         container.appendChild(divs);
@@ -27,15 +27,33 @@ function letter(num) {
             div.style.height = `${(960 / num)}px`;
             div.style.backgroundColor = "white";
             div.addEventListener('mouseenter', function(e) {
-                let x = Math.floor(Math.random() * 256);
-                let y = Math.floor(Math.random() * 256);
-                let z = Math.floor(Math.random() * 256);
-                let randomColor = `rgb(${x},${y},${z})`
-                this.style.backgroundColor = randomColor;
+                if(this.style.backgroundColor === "white") {
+                    return this.style.backgroundColor = randomRgb();
+                } else {
+                    return this.style.backgroundColor = increaseBlack(this.style.backgroundColor);
+                }
+                
             })
             
         }
     }
 }
+
+function randomRgb() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`
+}
+
+function increaseBlack(rgb) {
+    let numWithComma = rgb.substring(4, rgb.length -1);
+    let arr = numWithComma.split(',');
+    let r = arr[0] - 26;
+    let g = arr[1] - 26;
+    let b = arr[2] - 26;
+    return `rgb(${r},${g},${b})`;
+}
+
 
 
